@@ -72,5 +72,5 @@ There are some JSON-LD specific mechanisms that can be used but should be avoide
 }
 ```
 
-The string literal and language map forms are required for all consumers, while the other forms are optional. Compliant producers MUST only output either the string literal or language map form.
+The string literal and language map forms are required for all consumers, while the other forms are optional. Compliant producers MUST only output either the string literal or language map form (note: there is an issue with JSON-LD here... which is set up to do one form OR the other, not either. We'll need to resolve this)
 
