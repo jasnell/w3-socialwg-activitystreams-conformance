@@ -25,7 +25,7 @@ Condition: Inherited default language context
 }
 ```
 
-```
+```json
 {
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
   "id": "urn:example:1",
@@ -37,7 +37,7 @@ Condition: Inherited default language context
 }
 ```
 
-```
+```json
 {
   "@context": "http://asjsonld.mybluemix.net",
   "id": "urn:example:1",
@@ -49,7 +49,7 @@ Condition: Inherited default language context
 }
 ```
 
-```
+```json
 {
   "@context": "http://asjsonld.mybluemix.net",
   "id": "urn:example:1",
@@ -62,7 +62,7 @@ Condition: Inherited default language context
 }
 ```
 
-```
+```json
 {
   "@context": "http://asjsonld.mybluemix.net",
   "id": "urn:example:1",
