@@ -38,7 +38,7 @@ Condition: Child object overrides default language context
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
   "@id": "urn:example:1",
   "displayName": {
-    "en": foo"
+    "en": "foo"
   },
   "object": {
     "@context": {
@@ -56,7 +56,7 @@ Condition: Child object overrides default language context
   "@context": ["http://asjsonld.mybluemix.net"],
   "@id": "urn:example:1",
   "displayName": {
-    "en": foo"
+    "en": "foo"
   },
   "object": {
     "displayName": {
@@ -92,7 +92,7 @@ Implementations can choose to switch the default language context so long as per
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "fr"}],
   "@id": "urn:example:1",
   "displayName": {
-    "en": foo"
+    "en": "foo"
   },
   "object": {
     "displayName": "bar"
@@ -105,7 +105,7 @@ Implementations can choose to switch the default language context so long as per
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "fr"}],
   "@id": "urn:example:1",
   "displayName": {
-    "@value": foo",
+    "@value": "foo",
     "@language": "en"
   },
   "object": {
