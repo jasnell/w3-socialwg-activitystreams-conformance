@@ -103,13 +103,13 @@ Here, both "displayNameMap" and "displayName" map to as:displayName but the form
 
 The same pattern would hold for each of the language sensitive fields: 
 
-# title (literal string)
-# titleMap (language map)
-# summary (literal string)
-# summaryMap (language map)
-# content (literal string)
-# contentMap (language map)
-# displayName (literal string)
-# displayNameMap (language map)
+1. title (literal string)
+1. titleMap (language map)
+1. summary (literal string)
+1. summaryMap (language map)
+1. content (literal string)
+1. contentMap (language map)
+1. displayName (literal string)
+1. displayNameMap (language map)
 
 
