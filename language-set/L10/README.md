@@ -1,7 +1,5 @@
 Type:      Roundtrip Test
 Condition: Multiple language sensitive properties with default language context "en"
-Fail: Optional
-Note: Input is not valid AS 2.0
 
 ## Input(s)
 

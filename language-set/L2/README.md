@@ -1,7 +1,5 @@
 Type:      Roundtrip Test
 Condition: Value object with @language = null
-Fail: Optional
-Note: Input is not valid AS 2.0
 
 ## Input(s)
 
