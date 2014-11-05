@@ -1,0 +1,19 @@
+Roundtrip Test
+
+Undefined language context
+
+  Input
+
+{
+  "@context": "http://asjsonld.mybluemix.net",
+  "@id": "urn:example:1",
+  "displayName": "foo"
+}
+
+  Output:
+
+{
+  "@context": "http://asjsonld.mybluemix.net",
+  "@id": "urn:example:1",
+  "displayName": "foo"
+}
