@@ -14,6 +14,7 @@
 
 ### Language-specific fields can take one of two basic forms: String Literal or Language Map
 
+No langauge context:
 ```json
 {
   "@context": "http://asjsonld.mybluemix.net",
@@ -21,6 +22,18 @@
 }
 ```
 
+String literal with default language context:
+```json
+{
+  "@context": [
+    "http://asjsonld.mybluemix.net", 
+    { "@language": "en" }
+  ],
+  "displayName": "foo"
+}
+```
+
+Language Map:
 ```json
 {
   "@context": "http://asjsonld.mybluemix.net",
