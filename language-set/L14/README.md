@@ -1,5 +1,8 @@
 Type:      Roundtrip Test
+
 Condition: Child object overrides default language context with null
+
+Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content"
 
 ## Input(s)
 

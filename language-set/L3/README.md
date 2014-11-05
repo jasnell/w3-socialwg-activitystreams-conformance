@@ -1,5 +1,8 @@
 Type:      Roundtrip Test
+
 Condition: Value object with @language = "en"
+
+Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content"
 
 ## Input(s)
 

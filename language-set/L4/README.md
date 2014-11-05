@@ -1,5 +1,8 @@
 Type:      Roundtrip Test
+
 Condition: Language Map with "en":"foo"
+
+Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content"
 
 ## Input(s)
 

@@ -1,5 +1,8 @@
 Type:      Roundtrip Test
+
 Condition: Multiple Language-sensitive properties Undefined language context
+
+Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content"
 
 ## Input
 
