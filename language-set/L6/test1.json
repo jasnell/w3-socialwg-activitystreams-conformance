@@ -1,0 +1,6 @@
+{
+  "@context": "http://asjsonld.mybluemix.net",
+  "@id": "urn:example:1",
+  "displayName": "foo",
+  "title": "bar"
+}

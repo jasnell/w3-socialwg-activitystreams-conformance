@@ -37,13 +37,13 @@ Language Map:
 ```json
 {
   "@context": "http://asjsonld.mybluemix.net",
-  "displayName": {
+  "displayNameMap": {
     "en": "foo"
   }
 }
 ```
 
-There are some JSON-LD specific mechanisms that make it through the JSON-LD expansion algorithms ok but should be avoided in AS 2.0. Example:
+There are some JSON-LD specific mechanisms that make it through the JSON-LD expansion algorithms ok but are not legal in AS 2.0. Example:
 
 ```json
 {
@@ -72,44 +72,6 @@ There are some JSON-LD specific mechanisms that make it through the JSON-LD expa
 }
 ```
 
-The string literal and language map forms are required for all consumers, while the other forms are optional. Compliant producers MUST only output either the string literal or language map form 
-
-Note: there is an issue with JSON-LD here... which is set up to do one form OR the other, not either. We'll need to resolve this. One suggestion has been to use separately mapped terms... 
-
-```json
-{
-  "@context": [
-    "http://asjsonld.mybluemix.net", 
-    {
-      "displayNameMap": {
-        "@id": "as:displayName",
-        "@container": "@language"
-      },
-      "displayName": {
-        "@id": "as:displayName",
-        "@type": "xsd:string"
-      }
-    }
-  ],
-  "displayNameMap": {
-    "en": "foo",
-    "fr": "bar"
-  },
-  "displayName": "test"
-}
-```
-
-Here, both "displayNameMap" and "displayName" map to as:displayName but the former is treated as a Language Map while the latter is a literal string. This is a workable solution that preserves backwards compatibility with AS 1.0 and makes the serialized output a bit more predictable. Non JSON-LD implementations would have to be aware, however, that the displayName could be expressed in one of two different ways ("displayName" or "displayNameMap"), which is less than ideal.
-
-The same pattern would hold for each of the language sensitive fields: 
-
-1. title (literal string)
-1. titleMap (language map)
-1. summary (literal string)
-1. summaryMap (language map)
-1. content (literal string)
-1. contentMap (language map)
-1. displayName (literal string)
-1. displayNameMap (language map)
+The string literal and language map forms are required for all consumers. Compliant producers MUST only output either the string literal or language map form 
 
 

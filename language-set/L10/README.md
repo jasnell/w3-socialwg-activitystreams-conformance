@@ -1,8 +1,8 @@
 Type:      Roundtrip Test
 
-Condition: Multiple language sensitive properties with default language context "en"
+Condition: Child object overrides default language context
 
-Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content" (various combinations)
+Repeat Test for each of the language sensitive core properties: "displayName", "title", "summary", "content"
 
 ## Input(s)
 
@@ -11,17 +11,36 @@ Repeat Test for each of the language sensitive core properties: "displayName", "
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
   "@id": "urn:example:1",
   "displayName": "foo",
-  "title": "bar"
+  "object": {
+    "@context": {
+      "@language": "fr"
+    },
+    "displayName": "bar"
+  }
 }
 ```
 
+## Normalized
+
+```turtle
+<urn:example:1> <http://www.w3.org/ns/activitystreams#displayName> "foo"@en .
+<urn:example:1> <http://www.w3.org/ns/activitystreams#object> _:c14n0 .
+_:c14n0 <http://www.w3.org/ns/activitystreams#displayName> "bar"@fr .
+```
+
 ## Output(s)
+
 ```json
 {
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
   "@id": "urn:example:1",
   "displayName": "foo",
-  "title": "bar"
+  "object": {
+    "@context": {
+      "@language": "fr"
+    },
+    "displayName": "bar"
+  }
 }
 ```
 
@@ -29,90 +48,59 @@ Repeat Test for each of the language sensitive core properties: "displayName", "
 {
   "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
   "@id": "urn:example:1",
-  "displayName": {
+  "displayNameMap": {
     "en": "foo"
   },
-  "title": {
-    "en": "bar"
+  "object": {
+    "@context": {
+      "@language": "fr"
+    },
+    "displayNameMap": {
+      "fr": "bar"
+    }
+  }
+}
+```
+
+```json
+{
+  "@context": ["http://asjsonld.mybluemix.net"],
+  "@id": "urn:example:1",
+  "displayNameMap": {
+    "en": "foo"
+  },
+  "object": {
+    "displayNameMap": {
+      "fr": "bar"
+    }
   }
 }
 ```
 
 ### Acceptable Alternative(s)
 
-The default language context can be removed by an implementation if per-field language context is preserved using "inline expansion"
+Implementations can choose to switch the default language context so long as per-field language context is preserved:
 
 ```json
 {
-  "@context": ["http://asjsonld.mybluemix.net"],
+  "@context": ["http://asjsonld.mybluemix.net", {"@language": "fr"}],
   "@id": "urn:example:1",
-  "displayName": {
+  "displayNameMap": {
     "en": "foo"
   },
-  "title": {
-    "en": "bar"
+  "object": {
+    "displayName": "bar"
   }
 }
 ```
-
-```json
-{
-  "@context": ["http://asjsonld.mybluemix.net"],
-  "@id": "urn:example:1",
-  "displayName": {
-    "@value": "foo",
-    "@language": "en"
-  },
-  "title": {
-    "@value": "bar",
-    "@language": "en"
-  }
-}
-```
-
-### Unacceptable Alternative(s)
-
-While the following are legal JSON-LD, they are not valid Activity Streams 2.0 because the inline expansion is not consistent
-
-```json
-{
-  "@context": ["http://asjsonld.mybluemix.net"],
-  "@id": "urn:example:1",
-  "displayName": {
-    "en": "foo"
-  },
-  "title": {
-    "@value": "bar",
-    "@language": "en"
-  }
-}
-```
-
-```json
-{
-  "@context": ["http://asjsonld.mybluemix.net"],
-  "@id": "urn:example:1",
-  "displayName": {
-    "@value": "foo",
-    "@language": "en"
-  },
-  "title": {
-    "en": "bar"
-  }
-}
-```
-
-
-Note: the specific value of "@language" is insignificant in this test.
 
 ## Success Conditions
 
 1. Activity Vocabulary Terms are serialized without a prefix (as: or otherwise)
 1. Activity Vocabulary Terms MUST NOT be redefined in the output context (e.g. "http://www.w3.org/ns/activitystreams#displayName" MUST be mapped to "displayName")
 1. @id is identical to input
-1. There is no default language context specified in @context, the default language context is set to "en", or per-field language context is preserved using inline expansion.
-1. "displayName" value is "foo" with language "en"
-1. "title" value is "bar" with language "en"
+1. containing object's "displayName" value is "foo" with language "en"
+1. "object" value's "displayName" value is "bar" with language "fr"
 
 ## Parameters
 

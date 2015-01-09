@@ -14,6 +14,12 @@ Repeat Test for each of the language sensitive core properties: "displayName", "
 }
 ```
 
+## Normalized
+
+```turtle
+<urn:example:1> <http://www.w3.org/ns/activitystreams#displayName> "foo" .
+```
+
 ## Output(s)
 ```json
 {
@@ -33,7 +39,7 @@ Repeat Test for each of the language sensitive core properties: "displayName", "
 
 ### Acceptable but discouraged Output
 
-The following output(s) define a default language context for the document but use a JSON-LD trick to specifically indicate that the default does not apply to "displayName". While this is legal, it is non-obvious and SHOULD be avoided.
+The following output(s) define a default language context for the document but use a JSON-LD trick to specifically indicate that the default does not apply to "displayName". While this is legal JSON-LD, it is non-obvious and SHOULD be avoided.
 
 ```json
 {

@@ -1,0 +1,7 @@
+{
+  "@context": ["http://asjsonld.mybluemix.net", {"@language": "en"}],
+  "@id": "urn:example:1",
+  "object": {
+    "displayName": "foo"
+  }
+}
