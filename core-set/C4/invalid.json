@@ -1,0 +1,11 @@
+{
+  "@context": ["http://asjsonld.mybluemix.net",
+    {
+      "pubdate": "as:published",
+      "name": "as:displayName"
+    }],
+  "@id": "urn:example:1",
+  "name": "Test",
+  "pubdate": "2015-01-01T12:12:12Z",
+  "rating": 2.5
+}
